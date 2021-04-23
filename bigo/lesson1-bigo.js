@@ -1,5 +1,7 @@
 //This file corresponds to Big O section in Master the Coding Interview: Data Structures + Algorithms with Andrei Neagoie
+//Big O allows us to measure the scalability of our code. 
 
+/*===================================TIME COMPLEXITY===================================*/
 const fish = ['dory', 'bruce', 'marlin', 'nemo'];
 const nemo = ['nemo'];
 const everyone = ['dory', 'bruce', 'marlin', 'nemo', 'gill', 'bloat', 'nigel', 'squirt', 'darla', 'hank'];
@@ -27,7 +29,7 @@ function logFirstTwoBoxes(boxes){
 
 //logFirstTwoBoxes(boxes); //O(2)
 
-/*------------------------------EXERCISE 1----------------------------------------*/
+/*===================================EXERCISE 1===================================*/
 // What is the Big O of the below function? (Hint, you may want to go line by line)
 function funChallenge(input) {
     let a = 10; //O(1)
@@ -43,7 +45,7 @@ function funChallenge(input) {
 
 //O(3+4n) => O(n)
 
-/*------------------------------EXERCISE 2----------------------------------------*/
+/*===================================EXERCISE 2===================================*/
 // What is the Big O of the below function? (Hint, you may want to go line by line)
 function anotherFunChallenge(input) {
     let a = 5; //O(1)
@@ -63,7 +65,7 @@ function anotherFunChallenge(input) {
   }
 
 //O(4+5n) => O(n)
-/*------------------------------Big-O Rules----------------------------------------*/
+/*===================================Big O Rules===================================*/
 /*
 Rule 1: Always worst Case
 Rule 2: Remove Constants
@@ -127,7 +129,7 @@ function findPairs(arr){
    }
 }
 
-findPairs(letters);
+//findPairs(letters);
 //When loops are nested, n is multiplied
 //O(n * n)=>O(n^2)  --> Quadratic Time
 
@@ -147,7 +149,7 @@ function printAllNumbersThenAllPairSums(numbers) {
     });
 }
   
-printAllNumbersThenAllPairSums([1,2,3,4,5])
+//printAllNumbersThenAllPairSums([1,2,3,4,5])
 
 //O(n + n^2) => O(n^2)
 //Drop non dominant term -- as size of input increases, n is far less important than n^2
@@ -162,3 +164,43 @@ x^2 = 250000
 x/2 = 250 
 x^2 is the dominant term, therefore this simplifies to O(x^2)
 */
+
+/*===================================SPACE COMPLEXITY===================================*/
+
+/*
+When a program executes there are two ways to remember things, the heap and the stack. 
+
+The heap is usually where variables are stored.
+The stack keeps track of function calls.
+
+-What causes Space complexity?-
+Variables
+Data Structures
+Function Call
+Allocations
+*/
+
+/*===================================EXERCISE 1===================================*/
+//Space complexity O(1)
+function boooo(n) {
+    for (let i = 0; i < n.length; i++) {
+        console.log('booooo');
+    }
+}
+boooo([1,2,3,4,5]);
+//The only variable created here is i. Other than i we are not taking up any more memory, so 
+//performance is O(1).
+
+
+//Space complexity O(n)
+function arrayOfHiNTimes(n) {
+    var hiArray = [];
+    for (let i = 0; i < n; i++) {
+        hiArray[i] = 'hi';
+    }
+    return hiArray;
+}
+
+arrayOfHiNTimes(6);
+//this function will create an array with 6 items. Because this function takes space for each iteration
+//of the loop, it is O(n)
