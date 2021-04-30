@@ -25,15 +25,20 @@ class LinkedList {
     }
 
     append(value){
-        const node = {
+        const newNode = {
             value: value,
             next: null
         }
         
-        this.tail.next = node;
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+
+        return this;
     }
 }
 
 const myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-console.log(myLinkedList);
+console.log(myLinkedList.append(5));
+console.log(myLinkedList.append(16));
+//console.log(myLinkedList);
