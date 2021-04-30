@@ -30,7 +30,7 @@ class LinkedList {
             next: null
         }
         
-        this.head.next = node;
+        this.tail.next = node;
     }
 }
 
