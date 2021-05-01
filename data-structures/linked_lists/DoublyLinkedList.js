@@ -55,7 +55,6 @@ class DoublyLinkedList {
 
         this.length++;
         
-        console.log(this);
         return this;
     }
 
@@ -72,9 +71,10 @@ class DoublyLinkedList {
             index = this.length - 1;
         }
 
-        const leader = this.traverseToIndex(index - 1);
-        leader.next.next.prev = leader;
-        leader.next = leader.next.next;
+        const nodeAfterDelete = this.traverseToIndex(index + 1);
+        nodeAfterDelete.prev = nodeAfterDelete.prev.prev;
+        nodeAfterDelete.prev.next = nodeAfterDelete;
+
         this.length--;
         return this;
     }
@@ -105,10 +105,19 @@ class DoublyLinkedList {
     }
 }
 
-const myLinkedList = new DoublyLinkedList(2);
-myLinkedList.append(3);
-myLinkedList.prepend(1);
+const myLinkedList = new DoublyLinkedList(3);
+myLinkedList.append(4);
+console.log(myLinkedList);
+myLinkedList.printList();
 
-console.log(myLinkedList.insert(1, 4));
-console.log(myLinkedList.remove(1));
+myLinkedList.prepend(1);
+console.log(myLinkedList);
+myLinkedList.printList();
+
+myLinkedList.insert(1, 2);
+console.log(myLinkedList);
+myLinkedList.printList();
+
+myLinkedList.remove(1);
+console.log(myLinkedList);
 myLinkedList.printList();
