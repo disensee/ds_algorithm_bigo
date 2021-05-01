@@ -64,21 +64,21 @@ class LinkedList {
         newNode.next = holdingPointer;
         this.length++;
         return this;
-      }
+    }
       
-      traverseToIndex(index) {
-        //Check params
-        if(isNaN(index)){
-            return false;
-        }
-        let counter = 0;
-        let currentNode = this.head;
-        while(counter !== index){
-          currentNode = currentNode.next;
-          counter++;
-        }
-        return currentNode;
-      }
+    traverseToIndex(index) {
+    //Check params
+    if(isNaN(index)){
+        return false;
+    }
+    let counter = 0;
+    let currentNode = this.head;
+    while(counter !== index){
+        currentNode = currentNode.next;
+        counter++;
+    }
+    return currentNode;
+    }
 
 
     printList(){
