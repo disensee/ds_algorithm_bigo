@@ -65,6 +65,24 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    remove(index){
+        if(isNaN(index) || index < 0){
+            return false;
+        }
+        if(index === 0){
+            this.head = this.head.next;
+            return this;
+        }
+        if(index >= this.length){
+            index = this.length - 1;
+        }
+
+        const leader = this.traverseToIndex(index - 1);
+        leader.next = leader.next.next;
+        this.length--;
+        return this;
+    }
       
     traverseToIndex(index) {
     //Check params
@@ -98,4 +116,6 @@ myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.printList();
 myLinkedList.insert(3, 66);
+myLinkedList.printList();
+myLinkedList.remove(5);
 myLinkedList.printList();
