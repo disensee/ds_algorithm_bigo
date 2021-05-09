@@ -73,13 +73,13 @@ function reverseStringIterative(str) {
 
 
 //Implement a function that reverses a string using iteration...and then recursion!
-let newString = '';
 function reverseStringRecursive(str) {
     if(str === ""){
-        return newString;
+        return "";
     }else{
         return reverseStringRecursive(str.substring(1)) + str.charAt(0);
     }
+
 }
 
 console.log(reverseStringIterative('yoyo mastery'));
